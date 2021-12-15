@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +22,19 @@
         <li><a href="2.php">Page 2</a></li>
         <li><a href="3.php">Page 3</a></li>
         <li><a href="4.php">Page 4</a></li>
+        <?php
+        if (!$connect) :
+        ?>
         <!-- affiché lorsqu'on est pas connecté, contient le formulaire de connexion -->
         <li><a href="connect.php">connexion</a></li>
         <!-- affiché lorsqu'on est connecté, contient la déconnexion réel de la session suivie d'une ridirection vers l'accueil -->
+        <?php
+        else :
+        ?>
         <li><a href="disconnect.php">déconnexion</a></li>
+        <?php
+        endif;
+        ?>
     </ul>
     <h2>Les utilisateurs</h2>
     <h3>Accès 1</h3>
